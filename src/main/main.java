@@ -134,21 +134,21 @@ public class main extends javax.swing.JFrame {
 
         btn_registration.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_registration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/images/icons/people-8x.png"))); // NOI18N
-        btn_registration.setText("Patient Registration");
+        btn_registration.setText("Registration");
         btn_registration.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_registration.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         patient_registration.add(btn_registration);
 
         btn_outPatient.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_outPatient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/images/icons/beaker-8x.png"))); // NOI18N
-        btn_outPatient.setText("Out Patient Management");
+        btn_outPatient.setText("Out Patient");
         btn_outPatient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_outPatient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         patient_registration.add(btn_outPatient);
 
         btn_inPatient.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_inPatient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/images/icons/medical-cross-8x.png"))); // NOI18N
-        btn_inPatient.setText("In Patient Management");
+        btn_inPatient.setText("In Patient");
         btn_inPatient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_inPatient.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         patient_registration.add(btn_inPatient);

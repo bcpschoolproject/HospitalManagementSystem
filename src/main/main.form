@@ -205,7 +205,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/main/images/icons/people-8x.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Patient Registration"/>
+                <Property name="text" type="java.lang.String" value="Registration"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
@@ -218,7 +218,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/main/images/icons/beaker-8x.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Out Patient Management"/>
+                <Property name="text" type="java.lang.String" value="Out Patient"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
@@ -231,7 +231,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/main/images/icons/medical-cross-8x.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="In Patient Management"/>
+                <Property name="text" type="java.lang.String" value="In Patient"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
