@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author DelaTorreNelson
  */
 @Entity
-@Table(name = "doctor", catalog = "hospital", schema = "", uniqueConstraints = {
+@Table(catalog = "hospital", schema = "", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"doctor_id"})})
 @XmlRootElement
 @NamedQueries({
@@ -42,19 +42,19 @@ public class Doctor implements Serializable {
     @Column(name = "doctor_id", nullable = false)
     private Integer doctorId;
     @Lob
-    @Column(name = "firstname", length = 65535)
+    @Column(length = 65535)
     private String firstname;
     @Lob
-    @Column(name = "lastname", length = 65535)
+    @Column(length = 65535)
     private String lastname;
     @Lob
-    @Column(name = "middlename", length = 65535)
+    @Column(length = 65535)
     private String middlename;
     @Basic(optional = false)
-    @Column(name = "age", nullable = false)
+    @Column(nullable = false)
     private int age;
     @Basic(optional = false)
-    @Column(name = "gender", nullable = false, length = 6)
+    @Column(nullable = false, length = 6)
     private String gender;
     @Basic(optional = false)
     @Column(name = "civil_status", nullable = false, length = 20)

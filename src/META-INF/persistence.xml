@@ -3,15 +3,13 @@
   <persistence-unit name="DentalClinicManagementPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>main.entities.Doctor</class>
-    <class>main.entities.Surgery</class>
-    <class>main.entities.Info</class>
-    <class>main.entities.Address</class>
-    <class>main.entities.Contact</class>
-    <class>main.entities.User</class>
+    <class>main.entities.Insurance</class>
     <class>main.entities.Admin</class>
+    <class>main.entities.Address</class>
     <class>main.entities.Patient</class>
     <class>main.entities.Hmo</class>
-    <class>main.entities.HmoCoverage</class>
+    <class>main.entities.ContactPerson</class>
+    <class>main.entities.Contact</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dental_clinic?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

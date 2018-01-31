@@ -37,7 +37,7 @@ import main.core1.Registration;
  * @author DelaTorreNelson
  */
 @Entity
-@Table(name = "patient", catalog = "hospital", schema = "", uniqueConstraints = {
+@Table(catalog = "hospital", schema = "", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"patient_id"})})
 @XmlRootElement
 @NamedQueries({
@@ -69,56 +69,61 @@ public class Patient implements Serializable {
     @Column(name = "patient_id", nullable = false)
     private Integer patientId;
     @Basic(optional = false)
-    @Column(name = "firstname", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String firstname;
     @Basic(optional = false)
-    @Column(name = "lastname", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String lastname;
     @Basic(optional = false)
-    @Column(name = "middlename", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String middlename;
     @Basic(optional = false)
-    @Column(name = "birthdate", nullable = false)
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date birthdate;
     @Basic(optional = false)
     @Lob
-    @Column(name = "birthplace", nullable = false, length = 65535)
+    @Column(nullable = false, length = 65535)
     private String birthplace;
     @Basic(optional = false)
-    @Column(name = "nationality", nullable = false, length = 20)
+    @Column(nullable = false, length = 20)
     private String nationality;
     @Basic(optional = false)
     @Column(name = "civil_status", nullable = false, length = 20)
     private String civilStatus;
     @Basic(optional = false)
-    @Column(name = "occupation", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String occupation;
     @Basic(optional = false)
-    @Column(name = "gender", nullable = false, length = 6)
+    @Column(nullable = false, length = 6)
     private String gender;
     @Basic(optional = false)
-    @Column(name = "age", nullable = false)
+    @Column(nullable = false)
     private int age;
     @Basic(optional = false)
-    @Column(name = "philhealth", nullable = false)
+    @Column(nullable = false)
     private long philhealth;
     @Basic(optional = false)
-    @Column(name = "sss", nullable = false)
+    @Column(nullable = false)
     private long sss;
     @Basic(optional = false)
-    @Column(name = "gsis", nullable = false)
+    @Column(nullable = false)
     private long gsis;
-    @Column(name = "insurance_no")
-    private Integer insuranceNo;
-    @Column(name = "doctor_id")
-    private Integer doctorId;
-    @Column(name = "contact_person_id")
-    private Integer contactPersonId;
-    @Column(name = "contact_id")
-    private Integer contactId;
-    @Column(name = "address_id")
-    private Integer addressId;
+    @Basic(optional = false)
+    @Column(name = "insurance_no", nullable = false)
+    private int insuranceNo;
+    @Basic(optional = false)
+    @Column(name = "doctor_id", nullable = false)
+    private int doctorId;
+    @Basic(optional = false)
+    @Column(name = "contact_person_id", nullable = false)
+    private int contactPersonId;
+    @Basic(optional = false)
+    @Column(name = "contact_id", nullable = false)
+    private int contactId;
+    @Basic(optional = false)
+    @Column(name = "address_id", nullable = false)
+    private int addressId;
 
     public Patient() {
     }
@@ -127,7 +132,7 @@ public class Patient implements Serializable {
         this.patientId = patientId;
     }
 
-    public Patient(Integer patientId, String firstname, String lastname, String middlename, Date birthdate, String birthplace, String nationality, String civilStatus, String occupation, String gender, int age, long philhealth, long sss, long gsis) {
+    public Patient(Integer patientId, String firstname, String lastname, String middlename, Date birthdate, String birthplace, String nationality, String civilStatus, String occupation, String gender, int age, long philhealth, long sss, long gsis, int insuranceNo, int doctorId, int contactPersonId, int contactId, int addressId) {
         this.patientId = patientId;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -142,6 +147,11 @@ public class Patient implements Serializable {
         this.philhealth = philhealth;
         this.sss = sss;
         this.gsis = gsis;
+        this.insuranceNo = insuranceNo;
+        this.doctorId = doctorId;
+        this.contactPersonId = contactPersonId;
+        this.contactId = contactId;
+        this.addressId = addressId;
     }
 
     public Integer getPatientId() {
@@ -256,43 +266,43 @@ public class Patient implements Serializable {
         this.gsis = gsis;
     }
 
-    public Integer getInsuranceNo() {
+    public int getInsuranceNo() {
         return insuranceNo;
     }
 
-    public void setInsuranceNo(Integer insuranceNo) {
+    public void setInsuranceNo(int insuranceNo) {
         this.insuranceNo = insuranceNo;
     }
 
-    public Integer getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(Integer doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 
-    public Integer getContactPersonId() {
+    public int getContactPersonId() {
         return contactPersonId;
     }
 
-    public void setContactPersonId(Integer contactPersonId) {
+    public void setContactPersonId(int contactPersonId) {
         this.contactPersonId = contactPersonId;
     }
 
-    public Integer getContactId() {
+    public int getContactId() {
         return contactId;
     }
 
-    public void setContactId(Integer contactId) {
+    public void setContactId(int contactId) {
         this.contactId = contactId;
     }
 
-    public Integer getAddressId() {
+    public int getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(Integer addressId) {
+    public void setAddressId(int addressId) {
         this.addressId = addressId;
     }
 
@@ -320,8 +330,8 @@ public class Patient implements Serializable {
     public String toString() {
         return "main.entities.Patient[ patientId=" + patientId + " ]";
     }
-
-    public void register(Address address, Contact contact, ContactPerson contactPerson, Insurance insurance){
+    
+    public void register(Address address, Contact contact, ContactPerson contactPerson){
         //Patient patient = new Patient();
         ResultSet resultSet = null;
         Connection connection = null;
@@ -351,6 +361,8 @@ public class Patient implements Serializable {
             preparedStatement.setInt(13, (int) this.getGsis());
             
             preparedStatement.execute();
+            //JOptionPane.showMessageDialog(this, (jd_birthdate.getDate().getYear()+118)+","+jd_birthdate.getDate().getMonth()+","+jd_birthdate.getDate().getDate()+","+jd_birthdate.getDate().getTimezoneOffset()+"\n"+jd_birthdate.getDate());
+            JOptionPane.showMessageDialog(null,"Patient Saved");
             
             sql = "SELECT patient_id FROM patient ORDER BY patient_id DESC LIMIT 1";
             preparedStatement = connection.prepareStatement(sql);
@@ -361,7 +373,6 @@ public class Patient implements Serializable {
                 address.register(patientId, address);
                 contact.register(patientId, contact);
                 contactPerson.register(patientId, contactPerson);
-                insurance.register(patientId, insurance);
             }                       
             
             

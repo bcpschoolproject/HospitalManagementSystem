@@ -30,12 +30,11 @@ import main.core1.Registration;
  * @author DelaTorreNelson
  */
 @Entity
-@Table(name = "contact", catalog = "hospital", schema = "")
+@Table(catalog = "hospital", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Contact.findAll", query = "SELECT c FROM Contact c")
     , @NamedQuery(name = "Contact.findByContactId", query = "SELECT c FROM Contact c WHERE c.contactId = :contactId")
-    , @NamedQuery(name = "Contact.findByPatientId", query = "SELECT c FROM Contact c WHERE c.patientId = :patientId")
     , @NamedQuery(name = "Contact.findByCellphoneNo", query = "SELECT c FROM Contact c WHERE c.cellphoneNo = :cellphoneNo")
     , @NamedQuery(name = "Contact.findByEmail", query = "SELECT c FROM Contact c WHERE c.email = :email")
     , @NamedQuery(name = "Contact.findByTelephoneNo", query = "SELECT c FROM Contact c WHERE c.telephoneNo = :telephoneNo")})
@@ -48,13 +47,10 @@ public class Contact implements Serializable {
     @Column(name = "contact_id", nullable = false)
     private Integer contactId;
     @Basic(optional = false)
-    @Column(name = "patient_id", nullable = false)
-    private int patientId;
-    @Basic(optional = false)
     @Column(name = "cellphone_no", nullable = false)
     private long cellphoneNo;
     @Basic(optional = false)
-    @Column(name = "email", nullable = false, length = 20)
+    @Column(nullable = false, length = 20)
     private String email;
     @Basic(optional = false)
     @Column(name = "telephone_no", nullable = false)
@@ -67,9 +63,8 @@ public class Contact implements Serializable {
         this.contactId = contactId;
     }
 
-    public Contact(Integer contactId, int patientId, long cellphoneNo, String email, long telephoneNo) {
+    public Contact(Integer contactId, long cellphoneNo, String email, long telephoneNo) {
         this.contactId = contactId;
-        this.patientId = patientId;
         this.cellphoneNo = cellphoneNo;
         this.email = email;
         this.telephoneNo = telephoneNo;
@@ -81,14 +76,6 @@ public class Contact implements Serializable {
 
     public void setContactId(Integer contactId) {
         this.contactId = contactId;
-    }
-
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
     }
 
     public long getCellphoneNo() {
@@ -139,7 +126,7 @@ public class Contact implements Serializable {
     public String toString() {
         return "main.entities.Contact[ contactId=" + contactId + " ]";
     }
-
+    
     public void register(int patientId, Contact contact){
         Connection connection = null;
         PreparedStatement preparedStatement = null;  
@@ -162,6 +149,5 @@ public class Contact implements Serializable {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Address not SAVED");
         }         
-    }    
-    
+    }   
 }

@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author DelaTorreNelson
  */
 @Entity
-@Table(name = "admin", catalog = "hospital", schema = "", uniqueConstraints = {
+@Table(catalog = "hospital", schema = "", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"admin_id"})})
 @XmlRootElement
 @NamedQueries({
